@@ -9,6 +9,8 @@ namespace Wgaffa.Functional
         public override Maybe<U> Bind<U>(Func<T, Maybe<U>> functor) => new None<U>();
 
         public override T Reduce(T defaultValue) => defaultValue;
+
+        public override T Reduce(Func<T> nonePredicate) => nonePredicate();
     }
 
     public sealed class Nothing

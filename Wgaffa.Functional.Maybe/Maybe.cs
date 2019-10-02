@@ -14,5 +14,6 @@ namespace Wgaffa.Functional
         public abstract Maybe<U> Bind<U>(Func<T, Maybe<U>> functor);
 
         public abstract T Reduce(T defaultValue);
+        public abstract T Reduce(Func<T> nonePredicate);
     }
 }
