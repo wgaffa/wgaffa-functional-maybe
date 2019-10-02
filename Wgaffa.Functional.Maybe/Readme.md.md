@@ -25,9 +25,14 @@ Maybe<int> noneInt = new None<int>();
 ## Using Maybe's
 `Map` takes a type and returns a `Maybe<T>` much like LINQ `Select`
 ```csharp
-var customerId = 42;
-var customerMaybe = 
+var customerId = Maybe<int>.Some(42);
+var customerMaybe = customerId.Map(id => new Customer(id)); // Maybe<Customer>
+```
+
+`Bind` doe
+```csharp
+
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2Mzc5MjQ3OCwtMTIyNTAyODUxMV19
+eyJoaXN0b3J5IjpbMjAxNTgzMDc1OSwtMTIyNTAyODUxMV19
 -->
