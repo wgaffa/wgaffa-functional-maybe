@@ -34,6 +34,11 @@ var customerMaybe = customerId.Map(id => new Customer(id)); // Maybe<Customer>
 var customer = repository.FindCustomer(42); // Returning a Maybe<Customer>
 var orders = customer.Bind(c => repository.FindOrder(c.orderId)); // FindOrder() returns a Maybe<Order>
 ```
+
+`Reduce` either returns the underlying value or if None a specified default value.
+```csharp
+var customer = maybeCusto
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxODAyMDkyMSwtMTIyNTAyODUxMV19
+eyJoaXN0b3J5IjpbLTk1NDkyNjA0MiwtMTIyNTAyODUxMV19
 -->
