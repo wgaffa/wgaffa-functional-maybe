@@ -1,3 +1,5 @@
+![Nuget](https://img.shields.io/nuget/v/Wgaffa.Functional.Maybe)
+
 # Maybe
 
 ## Installing
@@ -41,6 +43,5 @@ var customer = maybeCustomer.Reduce(new Customer()); // Either the Customer in m
 var customerWithFunctor = maybeCustomer.Reduce(() => new Customer());
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTgxMDE2MDksLTEyMjUwMjg1MTFdfQ
-==
+eyJoaXN0b3J5IjpbMTk1MjI4NzU2NSwtMTIyNTAyODUxMV19
 -->
