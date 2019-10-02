@@ -24,8 +24,10 @@ Maybe<int> noneInt = new None<int>();
 
 ## Using Maybe's
 `Map` takes a type and returns a `Maybe<T>` much like LINQ `Select`
-
+```csharp
+var customerId = 42;
+var customerMaybe = 
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjEzNTU3MDUsLTEyMjUwMjg1MTFdfQ
-==
+eyJoaXN0b3J5IjpbLTM2Mzc5MjQ3OCwtMTIyNTAyODUxMV19
 -->
