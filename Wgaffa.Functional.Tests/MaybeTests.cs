@@ -61,5 +61,11 @@ namespace Wgaffa.Functional.Tests
 
             Assert.That(result, Is.TypeOf<None<int>>());
         }
+
+        [Test]
+        public void Some_ShouldThrow_GivenNullValue()
+        {
+            Assert.That(() => Maybe<object>.Some(null), Throws.ArgumentNullException);
+        }
     }
 }

@@ -6,7 +6,13 @@ namespace Wgaffa.Functional
     {
         private readonly T _value;
 
-        public Some(T value) => _value = value;
+        public Some(T value)
+        {
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
+            _value = value;
+        }
 
         public override Maybe<U> Map<U>(Func<T, U> functor) => new Some<U>(functor(_value));
 
