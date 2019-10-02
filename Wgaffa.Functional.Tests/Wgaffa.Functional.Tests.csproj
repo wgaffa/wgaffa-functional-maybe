@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Wgaffa.Functional.Tests</RootNamespace>
+    <AssemblyName>Wgaffa.Functional.Tests</AssemblyName>
+    <TargetFramework>net471</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+	<PackageReference Include="NUnit" Version="3.11.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wgaffa.Functional.Maybe\Wgaffa.Functional.Maybe.csproj" />
+  </ItemGroup>
+</Project>

@@ -7,6 +7,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>wgaffa</Authors>
     <Company>Wgaffa</Company>
+    <Description>A simple Maybe/Optional monad type.</Description>
+    <PackageProjectUrl>https://github.com/wgaffa/wgaffa-functional-maybe</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>
