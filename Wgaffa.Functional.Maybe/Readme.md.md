@@ -19,8 +19,13 @@ Maybe<int> noneInt = Nothing.Value;
 ### Calling constructors
 ```csharp
 Maybe<int> someInt = new Some<int>(42);
-Maybe<int> noneInt = 
+Maybe<int> noneInt = new None<int>();
 ```
+
+## Using Maybe's
+`Map` takes a type and returns a `Maybe<T>` much like LINQ `Select`
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzNzA5MDY3OCwtMTIyNTAyODUxMV19
+eyJoaXN0b3J5IjpbLTEzMjEzNTU3MDUsLTEyMjUwMjg1MTFdfQ
+==
 -->
