@@ -31,8 +31,9 @@ var customerMaybe = customerId.Map(id => new Customer(id)); // Maybe<Customer>
 
 `Bind` takes a functor returning another maybe and chains everything together much like LINQ `SelectMany`.
 ```csharp
-var customer =
+var customer = repository.FindCustomer(42); // Returning a Maybe<Customer>
+var orders = customer.Bind(c => repository.FindOrder(c.orderId)); // FindOrder() returns a Maybe<Order>
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyNzk1OTgwMSwtMTIyNTAyODUxMV19
+eyJoaXN0b3J5IjpbMTQxODAyMDkyMSwtMTIyNTAyODUxMV19
 -->
