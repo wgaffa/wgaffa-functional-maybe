@@ -1,4 +1,4 @@
-![Nuget](https://img.shields.io/nuget/v/Wgaffa.Functional.Maybe)
+![GitHub](https://img.shields.io/github/license/wgaffa/wgaffa-functional-maybe) ![Nuget](https://img.shields.io/nuget/v/Wgaffa.Functional.Maybe)
 
 # Maybe
 
@@ -43,5 +43,5 @@ var customer = maybeCustomer.Reduce(new Customer()); // Either the Customer in m
 var customerWithFunctor = maybeCustomer.Reduce(() => new Customer());
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1MjI4NzU2NSwtMTIyNTAyODUxMV19
+eyJoaXN0b3J5IjpbMTgyNzY4NjE5OSwtMTIyNTAyODUxMV19
 -->
