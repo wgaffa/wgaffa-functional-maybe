@@ -37,8 +37,10 @@ var orders = customer.Bind(c => repository.FindOrder(c.orderId)); // FindOrder()
 
 `Reduce` either returns the underlying value or if None a specified default value.
 ```csharp
-var customer = maybeCusto
+var customer = maybeCustomer.Reduce(new Customer()); // Either the Customer in maybeCustomer or a new default Customer
+var customerWithFunctor = maybeCustomer.Reduce(() => new Customer());
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1NDkyNjA0MiwtMTIyNTAyODUxMV19
+eyJoaXN0b3J5IjpbLTEzOTgxMDE2MDksLTEyMjUwMjg1MTFdfQ
+==
 -->
