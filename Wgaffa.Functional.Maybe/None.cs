@@ -2,7 +2,7 @@
 
 namespace Wgaffa.Functional
 {
-    public sealed class None<T> : Maybe<T>
+    public sealed class None<T> : Maybe<T>, IEquatable<None<T>>
     {
         public override Maybe<U> Map<U>(Func<T, U> functor) => new None<U>();
 
@@ -11,6 +11,19 @@ namespace Wgaffa.Functional
         public override T Reduce(T defaultValue) => defaultValue;
 
         public override T Reduce(Func<T> nonePredicate) => nonePredicate();
+
+        public override void Match(Action<T> ifSome, Action ifNone) => ifNone();
+
+        public bool Equals(None<T> other) => true;
+
+        public override bool Equals(object obj) => true;
+
+        public override int GetHashCode() => 0;
+
+        public static bool operator ==(None<T> left, None<T> right) =>
+            (left is null && right is null) || (!(left is null) && left.Equals(right));
+
+        public static bool operator !=(None<T> left, None<T> right) => !(left == right);
     }
 
     public sealed class Nothing

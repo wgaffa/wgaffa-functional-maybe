@@ -3,6 +3,11 @@
     <RootNamespace>Wgaffa.Functional.Tests</RootNamespace>
     <AssemblyName>Wgaffa.Functional.Tests</AssemblyName>
     <TargetFramework>net471</TargetFramework>
+    <Version>1.0.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>wgaffa</Authors>
+    <Product>Wgaffa.Functional.Tests</Product>
   </PropertyGroup>
   <ItemGroup>
 	<PackageReference Include="NUnit" Version="3.11.0" />

@@ -67,5 +67,33 @@ namespace Wgaffa.Functional.Tests
         {
             Assert.That(() => Maybe<object>.Some(null), Throws.ArgumentNullException);
         }
+
+        [Test]
+        public void Match_ShouldRunIfSome_GivenSome()
+        {
+            Maybe<int> maybeInt = 5;
+
+            int result = 0;
+            maybeInt.Match(
+                x => result = x,
+                () => result = 0
+                );
+
+            Assert.That(result, Is.EqualTo(5));
+        }
+
+        [Test]
+        public void Match_ShouldRunIfSome_GivenNone()
+        {
+            Maybe<int> maybeInt = Maybe<int>.None();
+
+            int result = 0;
+            maybeInt.Match(
+                x => result = x,
+                () => result = 10
+                );
+
+            Assert.That(result, Is.EqualTo(10));
+        }
     }
 }

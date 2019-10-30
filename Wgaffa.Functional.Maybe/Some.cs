@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Wgaffa.Functional
 {
-    public sealed class Some<T> : Maybe<T>
+    public sealed class Some<T> : Maybe<T>, IEquatable<Some<T>>
     {
         private readonly T _value;
 
@@ -21,5 +22,38 @@ namespace Wgaffa.Functional
         public override T Reduce(T defaultValue) => _value;
 
         public override T Reduce(Func<T> nonePredicate) => _value;
+
+        public override void Match(Action<T> ifSome, Action ifNone) => ifSome(_value);
+
+        public bool Equals(Some<T> other)
+        {
+            if (other == null)
+                return false;
+
+            if (ReferenceEquals(this, other))
+                return true;
+
+            return EqualityComparer<T>.Default.Equals(_value, other._value);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return Equals(obj as Some<T>);
+        }
+
+        public override int GetHashCode()
+        {
+            return EqualityComparer<T>.Default.GetHashCode(_value);
+        }
+
+        public static bool operator ==(Some<T> left, Some<T> right) => 
+            (left is null && right is null) || (!(left is null) && left.Equals(right));
+
+        public static bool operator !=(Some<T> left, Some<T> right) => !(left == right);
     }
 }
