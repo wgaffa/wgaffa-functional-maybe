@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,6 +9,7 @@
     <Company>Wgaffa</Company>
     <Description>A simple Maybe/Optional monad type.</Description>
     <PackageProjectUrl>https://github.com/wgaffa/wgaffa-functional-maybe</PackageProjectUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
