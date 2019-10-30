@@ -12,6 +12,8 @@ namespace Wgaffa.Functional
 
         public override T Reduce(Func<T> nonePredicate) => nonePredicate();
 
+        public override void Match(Action<T> ifSome, Action ifNone) => ifNone();
+
         public bool Equals(None<T> other) => true;
 
         public override bool Equals(object obj) => true;

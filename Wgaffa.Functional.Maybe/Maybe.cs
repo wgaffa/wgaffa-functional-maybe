@@ -15,5 +15,7 @@ namespace Wgaffa.Functional
 
         public abstract T Reduce(T defaultValue);
         public abstract T Reduce(Func<T> nonePredicate);
+
+        public abstract void Match(Action<T> ifSome, Action ifNone);
     }
 }
