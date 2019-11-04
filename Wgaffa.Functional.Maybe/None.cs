@@ -2,7 +2,7 @@
 
 namespace Wgaffa.Functional
 {
-    public sealed class None<T> : Maybe<T>, IEquatable<None<T>>
+    public sealed class None<T> : Maybe<T>, IEquatable<None<T>>, IEquatable<None>
     {
         public override Maybe<U> Map<U>(Func<T, U> functor) => new None<U>();
 
@@ -14,9 +14,12 @@ namespace Wgaffa.Functional
 
         public override void Match(Action<T> ifSome, Action ifNone) => ifNone();
 
-        public bool Equals(None<T> other) => true;
+        public bool Equals(None<T> other) => other == null ? false : true;
 
-        public override bool Equals(object obj) => true;
+        public bool Equals(None other) => other == null ? false : true;
+
+        public override bool Equals(object obj) =>
+            !(obj is null) && ((obj is None<T>) || (obj is None));
 
         public override int GetHashCode() => 0;
 
@@ -26,10 +29,22 @@ namespace Wgaffa.Functional
         public static bool operator !=(None<T> left, None<T> right) => !(left == right);
     }
 
-    public sealed class Nothing
+    public sealed class None : IEquatable<None>
     {
-        public static Nothing Value { get; } = new Nothing();
+        public static None Value { get; } = new None();
 
-        private Nothing() { }
+        private None() { }
+
+        public bool Equals(None other) => other == null ? false : true;
+
+        public override bool Equals(object obj) =>
+            !(obj is null) && (obj is None) || IsGenericNone(obj.GetType());
+
+        private bool IsGenericNone(Type type) =>
+            type.GenericTypeArguments.Length == 1
+            && typeof(None<>).MakeGenericType(type.GenericTypeArguments[0]) == type;
+
+
+        public override int GetHashCode() => 0;
     }
 }

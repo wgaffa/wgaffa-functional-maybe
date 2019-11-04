@@ -43,5 +43,37 @@ namespace Wgaffa.Functional.Tests
 
             Assert.That(maybeFive.Equals(maybeOtherFive), Is.True);
         }
+
+        [Test]
+        public void Equals_ShouldReturnFalse_GivenSomeAndNone()
+        {
+            Maybe<int> some = Maybe<int>.Some(5);
+            Maybe<int> none = Maybe<int>.None();
+
+            var result = some.Equals(none);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Equals_ShouldReturnFalse_GivenNoneAndSome()
+        {
+            Maybe<int> some = Maybe<int>.Some(5);
+            Maybe<int> none = Maybe<int>.None();
+
+            var result = none.Equals(some);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Equals_ShouldReturnFalse_ComparingNoneToNull()
+        {
+            var none = Maybe<int>.None();
+
+            var result = none.Equals((None<int>)null);
+
+            Assert.That(result, Is.False);
+        }
     }
 }
