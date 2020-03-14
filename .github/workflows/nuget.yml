@@ -29,6 +29,6 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: package
       run: |
-        VERSION=${{ date +%s }}
+        VERSION=$(date +%s)
         dotnet pack --configuration Release --version-suffix ${VERSION}
         dotnet nuget push "bin/Release/wgaffa-functional-maybe*${VERSION}.nupkg" --skip-duplicate
