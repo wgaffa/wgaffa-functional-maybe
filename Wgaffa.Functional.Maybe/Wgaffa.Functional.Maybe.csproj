@@ -3,13 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Wgaffa.Functional</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>wgaffa</Authors>
     <Company>Wgaffa</Company>
     <Description>A simple Maybe/Optional monad type.</Description>
     <PackageProjectUrl>https://github.com/wgaffa/wgaffa-functional-maybe</PackageProjectUrl>
-    <Version>1.0.2</Version>
+    <VersionPrefix>1.0.2</VersionPrefix>
   </PropertyGroup>
 
 </Project>
