@@ -32,4 +32,4 @@ jobs:
         VERSION=$(date +%s)
         dotnet build --configuration Release --version-suffix ${VERSION}
         dotnet pack --no-build --configuration Release --version-suffix ${VERSION}
-        dotnet nuget push "Wgaffa.Functional.Maybe/bin/Release/wgaffa-functional-maybe*${VERSION}.nupkg" --source "github" --skip-duplicate
+        dotnet nuget push "Wgaffa.Functional.Maybe/bin/Release/wgaffa-functional-maybe*${VERSION}.nupkg" -k ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/wgaffa/index.json" --skip-duplicate
