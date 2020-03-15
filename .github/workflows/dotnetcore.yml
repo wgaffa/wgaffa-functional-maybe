@@ -22,4 +22,5 @@ jobs:
     - name: Test
       run: dotnet test --collect:"XPlat Code Coverage"
     - uses: codecov/codecov-action@v1
-      flags: unittests
+      with:
+        flags: unittests
