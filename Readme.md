@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/wgaffa/wgaffa-functional-maybe) ![Nuget](https://img.shields.io/nuget/v/Wgaffa.Functional.Maybe)
+![GitHub](https://img.shields.io/github/license/wgaffa/wgaffa-functional-maybe) ![Nuget](https://img.shields.io/nuget/v/Wgaffa.Functional.Maybe) ![Codecov branch](https://img.shields.io/codecov/c/gh/wgaffa/wgaffa-functional-maybe/develop?label=coverage%20develop) ![Codecov branch](https://img.shields.io/codecov/c/gh/wgaffa/wgaffa-functional-maybe/master?label=coverage%20master)
 
 # Maybe
 
