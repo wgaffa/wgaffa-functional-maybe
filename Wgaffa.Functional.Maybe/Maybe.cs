@@ -17,5 +17,10 @@ namespace Wgaffa.Functional
         public abstract T Reduce(Func<T> nonePredicate);
 
         public abstract void Match(Action<T> ifSome, Action ifNone);
+
+        public Maybe<TNew> OfType<TNew>() where TNew : class =>
+            this is Some<T> some && typeof(TNew).IsAssignableFrom(typeof(T))
+                ? (Maybe<TNew>)new Some<TNew>(some.Value as TNew)
+                : new None<TNew>();
     }
 }
