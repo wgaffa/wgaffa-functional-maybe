@@ -10,9 +10,13 @@
     <Product>Wgaffa.Functional.Tests</Product>
   </PropertyGroup>
   <ItemGroup>
+	  <PackageReference Include="coverlet.collector" Version="1.2.0">
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	    <PrivateAssets>all</PrivateAssets>
+	  </PackageReference>
 	  <PackageReference Include="NUnit" Version="3.11.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wgaffa.Functional.Maybe\Wgaffa.Functional.Maybe.csproj" />
