@@ -42,6 +42,14 @@ var orders = customer.Bind(c => repository.FindOrder(c.orderId)); // FindOrder()
 var customer = maybeCustomer.Reduce(new Customer()); // Either the Customer in maybeCustomer or a new default Customer
 var customerWithFunctor = maybeCustomer.Reduce(() => new Customer());
 ```
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyNzY4NjE5OV19
--->
+
+`OfType<T>` tries to convert from type TOld to T, if it can't it returns a None of type T
+```csharp
+Maybe<Car> someCar = new Car();
+Maybe<IVehicle> carVehicle = someCar.OfType<IVehicle>();
+
+Maybe<Car> noCar = None.Value();
+Maybe<IVehicle> noVehicle = noCar.OfType<IVehicle>();
+
+Maybe<IVehicle> noTruck = someCar.OfType<Truck>(); // None<IVehicle>
+```
