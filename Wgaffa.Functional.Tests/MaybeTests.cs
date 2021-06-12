@@ -95,5 +95,20 @@ namespace Wgaffa.Functional.Tests
 
             Assert.That(result, Is.EqualTo(10));
         }
+
+        [Test]
+        public void Content_ShouldBeSame_GivenPatternMatching()
+        {
+            Maybe<int> maybeInt = 6;
+
+            if (maybeInt is Some<int> i)
+            {
+                Assert.That(i.Content, Is.EqualTo(6));
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
     }
 }

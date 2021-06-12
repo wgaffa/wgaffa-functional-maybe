@@ -5,25 +5,25 @@ namespace Wgaffa.Functional
 {
     public sealed class Some<T> : Maybe<T>, IEquatable<Some<T>>
     {
-        private readonly T _value;
+        public T Content { get; }
 
         public Some(T value)
         {
             if (value == null)
                 throw new ArgumentNullException(nameof(value));
 
-            _value = value;
+            Content = value;
         }
 
-        public override Maybe<U> Map<U>(Func<T, U> functor) => new Some<U>(functor(_value));
+        public override Maybe<U> Map<U>(Func<T, U> functor) => new Some<U>(functor(Content));
 
-        public override Maybe<U> Bind<U>(Func<T, Maybe<U>> functor) => functor(_value);
+        public override Maybe<U> Bind<U>(Func<T, Maybe<U>> functor) => functor(Content);
 
-        public override T Reduce(T defaultValue) => _value;
+        public override T Reduce(T defaultValue) => Content;
 
-        public override T Reduce(Func<T> nonePredicate) => _value;
+        public override T Reduce(Func<T> nonePredicate) => Content;
 
-        public override void Match(Action<T> ifSome, Action ifNone) => ifSome(_value);
+        public override void Match(Action<T> ifSome, Action ifNone) => ifSome(Content);
 
         public bool Equals(Some<T> other)
         {
@@ -33,7 +33,7 @@ namespace Wgaffa.Functional
             if (ReferenceEquals(this, other))
                 return true;
 
-            return EqualityComparer<T>.Default.Equals(_value, other._value);
+            return EqualityComparer<T>.Default.Equals(Content, other.Content);
         }
 
         public override bool Equals(object obj)
@@ -48,7 +48,7 @@ namespace Wgaffa.Functional
 
         public override int GetHashCode()
         {
-            return EqualityComparer<T>.Default.GetHashCode(_value);
+            return EqualityComparer<T>.Default.GetHashCode(Content);
         }
 
         public static bool operator ==(Some<T> left, Some<T> right) => 
