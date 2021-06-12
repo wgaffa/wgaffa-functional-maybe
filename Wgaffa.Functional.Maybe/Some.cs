@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Wgaffa.Functional
 {
     public sealed class Some<T> : Maybe<T>, IEquatable<Some<T>>
     {
-        public T Content { get; }
+        [NotNull] public T Content { get; }
 
-        public Some(T value)
+        public Some(T content)
         {
-            if (value == null)
-                throw new ArgumentNullException(nameof(value));
-
-            Content = value;
+            Content = content ?? throw new ArgumentNullException(nameof(content));
         }
 
         public override Maybe<U> Map<U>(Func<T, U> functor) => new Some<U>(functor(Content));
@@ -25,18 +23,16 @@ namespace Wgaffa.Functional
 
         public override void Match(Action<T> ifSome, Action ifNone) => ifSome(Content);
 
-        public bool Equals(Some<T> other)
+        public bool Equals(Some<T>? other)
         {
             if (other == null)
                 return false;
 
-            if (ReferenceEquals(this, other))
-                return true;
-
-            return EqualityComparer<T>.Default.Equals(Content, other.Content);
+            return ReferenceEquals(this, other) 
+                   || EqualityComparer<T>.Default.Equals(Content, other.Content);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null || GetType() != obj.GetType())
             {
@@ -51,7 +47,7 @@ namespace Wgaffa.Functional
             return EqualityComparer<T>.Default.GetHashCode(Content);
         }
 
-        public static bool operator ==(Some<T> left, Some<T> right) => 
+        public static bool operator ==(Some<T>? left, Some<T>? right) => 
             (left is null && right is null) || (!(left is null) && left.Equals(right));
 
         public static bool operator !=(Some<T> left, Some<T> right) => !(left == right);

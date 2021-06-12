@@ -14,19 +14,19 @@ namespace Wgaffa.Functional
 
         public override void Match(Action<T> ifSome, Action ifNone) => ifNone();
 
-        public bool Equals(None<T> other) => other == null ? false : true;
+        public bool Equals(None<T>? other) => other != null;
 
-        public bool Equals(None other) => other == null ? false : true;
+        public bool Equals(None? other) => other != null;
 
-        public override bool Equals(object obj) =>
+        public override bool Equals(object? obj) =>
             !(obj is null) && ((obj is None<T>) || (obj is None));
 
         public override int GetHashCode() => 0;
 
-        public static bool operator ==(None<T> left, None<T> right) =>
+        public static bool operator ==(None<T>? left, None<T>? right) =>
             (left is null && right is null) || (!(left is null) && left.Equals(right));
 
-        public static bool operator !=(None<T> left, None<T> right) => !(left == right);
+        public static bool operator !=(None<T>? left, None<T>? right) => !(left == right);
     }
 
     public sealed class None : IEquatable<None>
@@ -35,15 +35,15 @@ namespace Wgaffa.Functional
 
         private None() { }
 
-        public bool Equals(None other) => other == null ? false : true;
+        public bool Equals(None? other) => other != null;
 
-        public override bool Equals(object obj) =>
-            !(obj is null) && (obj is None) || IsGenericNone(obj.GetType());
+        public override bool Equals(object? obj) =>
+            obj is None || IsGenericNone(obj?.GetType());
 
-        private bool IsGenericNone(Type type) =>
-            type.GenericTypeArguments.Length == 1
+        private static bool IsGenericNone(Type? type) =>
+            type != null
+            && type.GenericTypeArguments.Length == 1
             && typeof(None<>).MakeGenericType(type.GenericTypeArguments[0]) == type;
-
 
         public override int GetHashCode() => 0;
     }
