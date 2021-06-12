@@ -10,6 +10,8 @@
     <PackageProjectUrl>https://github.com/wgaffa/wgaffa-functional-maybe</PackageProjectUrl>
     <RepositoryUrl>https://github.com/wgaffa/wgaffa-functional-maybe</RepositoryUrl>
     <VersionPrefix>1.0.2</VersionPrefix>
+    
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 </Project>
