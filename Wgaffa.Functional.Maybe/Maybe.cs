@@ -20,7 +20,7 @@ namespace Wgaffa.Functional
 
         public Maybe<TNew> OfType<TNew>() where TNew : class =>
             this is Some<T> some && typeof(TNew).IsAssignableFrom(typeof(T))
-                ? (Maybe<TNew>)new Some<TNew>(some.Value as TNew)
+                ? (Maybe<TNew>)new Some<TNew>((some.Content as TNew)!)
                 : new None<TNew>();
     }
 }
