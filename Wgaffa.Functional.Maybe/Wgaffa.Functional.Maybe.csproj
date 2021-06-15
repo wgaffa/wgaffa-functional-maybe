@@ -9,7 +9,7 @@
     <Description>A simple Maybe/Optional monad type.</Description>
     <PackageProjectUrl>https://github.com/wgaffa/wgaffa-functional-maybe</PackageProjectUrl>
     <RepositoryUrl>https://github.com/wgaffa/wgaffa-functional-maybe</RepositoryUrl>
-    <VersionPrefix>1.0.2</VersionPrefix>
+    <VersionPrefix>1.1.0</VersionPrefix>
     
     <Nullable>enable</Nullable>
   </PropertyGroup>
